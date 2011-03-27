@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     end.flatten.sort_by{ |like| like.created_at }.reverse
 
     respond_to do |format|
-      format.json { render :json => @likes }
+      format.json { render :json => @likes, :callback => params[:callback] }
     end
   end
 
